@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Stop on errors, print commands
+set -e
+set -x
+
+# Set up environment for Flask debug server
+export FLASK_DEBUG=True
+export FLASK_APP=eatdwell
+
+# Compile in the background
+npx webpack --watch &
+
+# Run development server
+flask run --port 8000 --host "0.0.0.0"
