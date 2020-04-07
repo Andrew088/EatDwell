@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<style>
+    .my-custom-scrollbar {
+    position: relative;
+    height: 200px;
+    overflow: auto;
+    }
+    .table-wrapper-scroll-y {
+    display: block;
+    }
+    img {
+    	display: block;
+	    height: 200px;
+	    margin-left: auto;
+		margin-right: auto;
+    }
+    .container {
+        margin-top: 50px;
+    }
+    .list-title {
+    	margin-bottom: 15px;
+    	display: inline-block;
+    }
+    .bookmarked-list {
+    	max-height: 150px;
+    }
+    .events-list {
+    	max-height: 250px;
+    }
+    .distance {
+        color: gray;
+        position: absolute;
+        right: 10px;
+        bottom: 15px;
+        font-size: 13px;
+    }
+    .dropdown {
+    	margin-left: 50px;
+    }
+   </style>
+<html>
+<head>
+    <title>test</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+<div>
+    <div>
+        <img src="img/logo_placeholder.png" alt="placeholder logo">
+    </div>
+	<div class="container">
+ 		<div class="row">
+		    <div class="col-9">
+		      MAP placeholder
+		    </div>
+		    <div class="col-3">
+		    	<div>
+		    		<h3 class="list-title">Bookmarked</h3>
+		    		<div class="overflow-auto bookmarked-list">
+						<ul class="list-group">
+                            <li class="list-group-item">event 1 <span class="distance">200m</span></li>
+                            <li class="list-group-item">event 2 <span class="distance">300m</span></li>
+                            <li class="list-group-item">event 3 <span class="distance">400m</span></li>
+                            <li class="list-group-item">event 4 <span class="distance">550m</span></li>
+                            <li class="list-group-item">event 5 <span class="distance">1mi</span></li>
+                        </ul>
+                    </div>
+                    <br>
+                    <div>
+                        <input type="text" id="datepicker" value="Search Date">
+                        <script src="pikaday.js"></script>
+                        <script>
+                            var picker = new Pikaday({ field: document.getElementById('datepicker') });
+                        </script>
+                    </div>
+                    <br>
+                    <div>
+                    	<h3 class="list-title">Events
+	                    <span class="dropdown">
+	                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Distance
+	                        <span class="caret"></span></button>
+	                        <ul class="dropdown-menu">
+	                            <li><a href="#">Distance</a></li>
+	                            <li><a href="#">Time</a></li>
+	                        </ul>
+	                    </span></h3>
+			    		<div class="overflow-auto events-list">
+							<ul class="list-group">
+	                            <li class="list-group-item">event 1 <span class="distance">200m</span></li>
+	                            <li class="list-group-item">event 2 <span class="distance">300m</span></li>
+	                            <li class="list-group-item">event 3 <span class="distance">400m</span></li>
+	                            <li class="list-group-item">event 4 <span class="distance">550m</span></li>
+	                            <li class="list-group-item">event 5 <span class="distance">1mi</span></li>
+	                            <li class="list-group-item">event 6 <span class="distance">1.2mi</span></li>
+	                            <li class="list-group-item">event 7 <span class="distance">1.5mi</span></li>
+	                        </ul>
+	                    </div>
+                	</div>
+		    	</div>
+		    </div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

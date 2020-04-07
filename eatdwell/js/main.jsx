@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import RandomWidget from './RandomWidget';
+import App from './App';
 
 ReactDOM.render(
-  <App url="/api/v1/random/" />,
-  document.getElementById('randomWidgetEntry'),
+  <App />,
+  document.getElementById('reactEntry'),
 );
