@@ -26,13 +26,14 @@ class EventList extends React.Component {
       this.state.listType = "Bookmarked";
     }
     this.handleSelectSort = this.handleSelectSort.bind(this);
-    this.showModal = this.showModal.bind(this);
+    this.changeModal = this.changeModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.save = this.save.bind(this);
   }
 
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.events !== this.props.events) {
+      console.log("should come here after bookmark")
       const ress = [];
       const { events } = this.props;
       for (let i = 0; i < events.length; ++i) {
@@ -97,14 +98,17 @@ class EventList extends React.Component {
   //   }
   // }
 
-  showModal(targetName) {
+  changeModal(targetName) {
     // event.preventDefault();
     const name = targetName;
     const results = this.state.res;
     for (var i = 0; i < results.length; i++) {
       if (results[i].eventName === name) {
-        // results[i].isShown = "yes";
-        results[i].clicks = 1;
+        if (results[i].clicks === 0) {
+          results[i].clicks = 1;
+        } else {
+          results[i].clicks = 0;
+        }
         break;
       }
     }
@@ -189,13 +193,13 @@ class EventList extends React.Component {
     console.log("render")
     const { options, res, isShown } = this.state;
     const list = res.map((dict) => (
-      <div id={dict.eventName} onClick={() => this.showModal(dict.eventName)}>
+      <div id={dict.eventName} onClick={() => this.changeModal(dict.eventName)}>
         <li className="list-group-item" key={dict.eventName}>
           { dict.eventName }
           <span className="distance">
             { dict.dist } feet</span>
         </li>
-        <EventPage show={dict.clicks} handleClose={this.closeModal} eventInfo={dict.eventInfo} save={this.save} />
+        <EventPage show={dict.clicks} handleClose={this.changeModal} eventInfo={dict.eventInfo} save={this.save} />
       </div>
     ));
     return (

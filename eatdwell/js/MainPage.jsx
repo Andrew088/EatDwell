@@ -82,12 +82,11 @@ class MainPage extends React.Component {
       const { events } = this.state;
       for (let j = 0; j < events.length; ++j) {
         if (events[j].eventId === id) {
-          booked.push(events[j]);
+          this.setState({
+            booked: [...booked, events[j]],
+          });
         }
       }
-      this.setState({
-        booked,
-      });
     }
   }
 

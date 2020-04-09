@@ -13,7 +13,8 @@ class EventPage extends React.Component {
     e.preventDefault();
     // eslint-disable-next-line react/destructuring-assignment
     console.log(this.props.eventInfo.eventName);
-    this.props.handleClose(this.props.eventInfo.eventName);
+    //this.props.handleClose(this.props.eventInfo.eventName);
+    this.props.show = 0;
   }
 
   save() {
