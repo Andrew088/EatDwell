@@ -1,0 +1,63 @@
+{
+    "data": [
+        {
+            "eventId": 1,
+            "eventName": "EECS 493 Snowflakes & Snowtears: Goodbye Party",
+            "startTime": "09:00 PM",
+            "endTime": "11:59 PM",
+            "foodType": ["Pizza", "Marshmallows"],
+            "cover": "./uploads/493_cover.jpg",
+            "location": "G.G. Brown Building, 2350 Hayward St, Ann Arbor, MI 48109",
+            "zipcode": 48109,
+            "description": "Say your last goodbyes to your favorite professor and assistant professor :( don't let the tears get into your free pizza tho.",
+            "uploaded-photos": ["./uploaded/493-1.jpg", "./uploaded/493-2.jpg"],            
+            "guest-count": 118,
+            "link": "https://www.youtube.com/watch?v=zRIbf6JqkNc"
+        },
+        {
+            "eventId": 2,
+            "eventName": "MPowered Sledding Pow Wow",
+            "startTime": "04:00 PM",
+            "endTime": "06:00 PM",
+            "foodType": ["Hot Cocoa"],
+            "cover": "./uploads/mpowered_cover.jpg",
+            "location": "401 Washtenaw Ave, Ann Arbor, MI 48109",
+            "zipcode": "48109",
+            "description": "Grab your sleds, grab your friends, lets go slip and slide all the way to the end! Bring your own sled! Free for all.",
+            "uploaded-photos": ["./uploaded/mpowered-1.jpg", "./uploaded/mpowered-2.jpg", "/uploaded/mpowered-3.jpg"],           
+            "guest-count": 28,
+            "link": "https://www.facebook.com/MPowered.UofM/"
+        },
+        {
+            "eventId": 3,
+            "eventName": "SASE Winter Ball",
+            "startTime": "07:00 PM",
+            "endTime": "10:00 PM",
+            "foodType": ["Steak","Spring Rolls", "Fortune Cookies"],
+            "cover": "./uploads/sase_cover.jpg",
+            "location": "100 Washtenaw Ave, Ann Arbor, MI 48109",
+            "zipcode": 48109,
+            "description": "Join SASE for our annual Winter Ball! Celebrate the new flurries with us. Tickets bought at the door or online.",
+            "uploaded-photos": ["./uploaded/sase-1.jpg", "./uploaded/sase-2.jpg"],       
+            "guest-count": 230,
+            "link": "http://umich.edu/~sase/"
+        },
+        {
+            "eventId": 4,
+            "eventName": "GenAPA Krispy Kreme Fundraiser",
+            "startTime": "10:00 AM",
+            "endTime": "4:00 PM",
+            "foodType": ["Donuts"],
+            "cover": "./uploads/genapa.jpg",
+            "location": "419 S State St Mason Hall, Ann Arbor, MI 48109",
+            "zipcode": 48109,
+            "description": "school got you down? 🍩🍩🍩🍩🍩🍩worry! come to GenAPA's Krispy Kreme Fundraiser at Mason Hall on Wednesday, 2/12 from 10 am-4 pm for a sweet treat. it's only $1/1 🍩 and $10/12 to have a snack and support the show!
+            ♡ 
+            PRE-ORDER here and pay in cash or venmo @ genapa later!
+            https://docs.google.com/forms/d/e/1FAIpQLSdRMbEbVl9_UGNF0KmRcDdzeYp5GGpONiItE5IXmWEPBEjHyQ/viewform",
+            "uploaded-photos": ["./uploaded/genapa.jpg"],            
+            "guest-count": 23,
+            "link": "https://www.facebook.com/events/484871125511383/?active_tab=about"
+        }
+    ]
+}

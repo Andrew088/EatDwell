@@ -1,6 +1,10 @@
 import React from 'react';
 import SearchBar from './SearchBar';
 import MainPage from './MainPage';
+import logo from '../img/eatdwell.png';
+
+// const logo = require('../img/eatdwell.png');
+
 
 class App extends React.Component {
   constructor(props) {
@@ -20,11 +24,10 @@ class App extends React.Component {
     const { zipcode } = this.state;
     let render;
     if (zipcode !== 0) {
-      render = <MainPage />;
+      render = <MainPage zipcode={zipcode}/>;
     } else {
       render = (
-        <div>
-          <h1>logo goes here</h1>
+        <div className="container">
           <SearchBar defaultText="Enter zipode here..." onChange={this.handleZipcodeChange} />
         </div>
       );
