@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Map, Marker, GoogleApiWrapper } from 'google-maps-react';
 
-class Map extends React.Component {
+class MapContainer extends React.Component {
     constructor(props) {
       super(props);
-      this.handleChange = this.handleChange.bind(this);
+
     }
 
     handleChange(e) {
@@ -13,25 +13,30 @@ class Map extends React.Component {
         // fill in 
       }
 
+   
     render() {
         return (
-            <Map
+            < Map
+              
                 google={this.props.google}
                 zoom={8}
                 style={mapStyles}
                 initialCenter={{ lat: 47.444, lng: -122.176}}
-            />
+            >
+                <Marker
+                    title={'The marker`s title will appear as a tooltip.'}
+                    name={'SOMA'}
+                    position={{ lat: 48.00, lng: -122.00}} />
 
-            // TODO: ADD MARKERS HERE
-            // <Marker position={{ lat: {something}}, lng: {something}}}} />
-            <Marker position={{ lat: 48.00, lng: -122.00}} />
+            </Map>
         );
     }
 }
 
 export default GoogleApiWrapper({
-    apiKey: 'AIzaSyDTvvfOhXAjcQPSzGd0xYJfx4AwwZZxs4U'
-  })(Map);
+    apiKey: 'AIzaSyAyesbQMyKVVbBgKVi2g6VX7mop2z96jBo'
+    //apiKey: 'AIzaSyDTvvfOhXAjcQPSzGd0xYJfx4AwwZZxs4U'
+  })(MapContainer);
 
 const mapStyles = {
     width: '100%',

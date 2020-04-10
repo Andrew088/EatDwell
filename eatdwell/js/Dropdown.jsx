@@ -51,7 +51,7 @@ class Dropdown extends React.Component {
     return (
       // eslint-disable-next-line no-return-assign
       <div ref={(node) => (this.node = node)}>
-        <button type="button" className="button" onClick={this.handleButtonClick}>
+        <button type="button" className="btn btn-outline-primary btn-sm" onClick={this.handleButtonClick}>
           {this.props.title}
         </button>
         {open && fullList}

@@ -10,7 +10,7 @@ class EventList extends React.Component {
     this.state = {
       res: [],
       listType: "Events",
-      dropDownTitle: "Sort By ☰",
+      dropDownTitle: "☰ Sort By",
       options: [
         {
           title:'Time',
@@ -67,7 +67,7 @@ class EventList extends React.Component {
         }
         else {
           this.setState({
-            dropDownTitle: "Sort By ☰"
+            dropDownTitle: "☰ Sort By"
           });
         }
       }
@@ -204,14 +204,20 @@ class EventList extends React.Component {
     ));
     return (
       <div>
-        <h4 className="list-title">{this.state.listType}
-          <span><Dropdown title={this.state.dropDownTitle} res={options} toggle={this.handleSelectSort}/></span>
-        </h4>
+        <nav class="navbar navbar-light bg-light">
+        <h4 className="list-title">{this.state.listType}</h4>
+        
+          <span> <Dropdown title={this.state.dropDownTitle} res={options} toggle={this.handleSelectSort}/></span>
+        
+        </nav>
+
         <div className={`overflow-auto ${this.props.listType}-list`}>
           <ul className="list-group">
             { list }
           </ul>
         </div>
+
+       
       </div>
     );
   }
@@ -223,3 +229,5 @@ EventList.propTypes = {
 };
 
 export default EventList;
+
+

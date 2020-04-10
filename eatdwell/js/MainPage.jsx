@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import EventList from './EventList';
 import EventPage from './EventPage';
+import MapContainer from "./MapContainer";
 // import logo from '../img/eatdwell.png';
 // import './style.css';
 
@@ -99,6 +100,7 @@ class MainPage extends React.Component {
         <div className="row">
           <div className="col-8">
             <h3>Map Placeholder</h3>
+            <MapContainer/>
           </div>
           <div className="col-4">
             <div value={this.props}>

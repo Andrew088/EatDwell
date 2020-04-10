@@ -57,7 +57,7 @@ span {
 }
 
 span button {
-    width: 78px;
+    /* width: 78px; */ /* julia: got rid of this so it's all on one line*/
 }
 
 .logo {
