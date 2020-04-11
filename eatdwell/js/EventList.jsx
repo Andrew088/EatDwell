@@ -204,7 +204,7 @@ class EventList extends React.Component {
     ));
     return (
       <div>
-        <nav class="navbar navbar-light bg-light">
+        <nav className="navbar navbar-light bg-light">
         <h4 className="list-title">{this.state.listType}</h4>
         
           <span> <Dropdown title={this.state.dropDownTitle} res={options} toggle={this.handleSelectSort}/></span>

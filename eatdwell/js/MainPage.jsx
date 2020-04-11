@@ -99,7 +99,6 @@ class MainPage extends React.Component {
         </div>
         <div className="row">
           <div className="col-8">
-            <h3>Map Placeholder</h3>
             <MapContainer/>
           </div>
           <div className="col-4">

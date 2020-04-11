@@ -19,14 +19,14 @@ class MapContainer extends React.Component {
             < Map
               
                 google={this.props.google}
-                zoom={8}
+                zoom={16}
                 style={mapStyles}
-                initialCenter={{ lat: 47.444, lng: -122.176}}
+                initialCenter={{ lat: 42.291325, lng: -83.717495}} //pierpont
             >
-                <Marker
+                {/* <Marker
                     title={'The marker`s title will appear as a tooltip.'}
                     name={'SOMA'}
-                    position={{ lat: 48.00, lng: -122.00}} />
+                    position={{ lat: 48.00, lng: -122.00}} /> */}
 
             </Map>
         );
@@ -34,11 +34,10 @@ class MapContainer extends React.Component {
 }
 
 export default GoogleApiWrapper({
-    apiKey: 'AIzaSyAyesbQMyKVVbBgKVi2g6VX7mop2z96jBo'
-    //apiKey: 'AIzaSyDTvvfOhXAjcQPSzGd0xYJfx4AwwZZxs4U'
+    apiKey: 'AIzaSyBdLt7rmCK0goo7tveQjeP_72aa2RY7Gx4'
   })(MapContainer);
 
 const mapStyles = {
-    width: '100%',
-    height: '100%',
+    width: '95%',
+    height: '95%',
 };
