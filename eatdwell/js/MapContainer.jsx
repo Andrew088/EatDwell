@@ -2,16 +2,29 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Map, Marker, GoogleApiWrapper } from 'google-maps-react';
 
+
+// ref: https://blog.vanila.io/writing-a-google-maps-react-component-fae411588a91
+
 class MapContainer extends React.Component {
     constructor(props) {
       super(props);
 
     }
 
-    handleChange(e) {
-        e.preventDefault();
-        // fill in 
-      }
+    renderChildren(){
+        return (
+
+            // create markers automatically somehow... this is just a dummy marker var for reference
+            <Marker
+                name={'Your position'}
+                position={{lat: 42.291325, lng: -83.717495}}
+                icon={{
+                    url: "/static/img/snowflake.png",
+                    anchor: new google.maps.Point(32,32),
+                    scaledSize: new google.maps.Size(64,64)
+                }} />
+        );
+    }
 
    
     render() {
@@ -19,14 +32,11 @@ class MapContainer extends React.Component {
             < Map
               
                 google={this.props.google}
-                zoom={16}
+                zoom={17}
                 style={mapStyles}
                 initialCenter={{ lat: 42.291325, lng: -83.717495}} //pierpont
             >
-                {/* <Marker
-                    title={'The marker`s title will appear as a tooltip.'}
-                    name={'SOMA'}
-                    position={{ lat: 48.00, lng: -122.00}} /> */}
+                {this.renderChildren()}
 
             </Map>
         );
