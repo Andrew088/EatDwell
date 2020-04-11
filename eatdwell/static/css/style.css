@@ -105,3 +105,13 @@ span button {
     width:100%;
     height:100%;
 }
+
+img.info {
+    max-width:20%;
+    max-height:20%;
+}
+
+#infoWindow {
+    display: inline-block;
+    justify-content: center;
+}
