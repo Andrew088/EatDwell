@@ -18,7 +18,7 @@ RANDOM_WORDS = ["whoa", "tacos", "nice", "sliver", "manifest", "colloquial",
 
 RANDOM_MESSAGES = ["Hello world!", "Good afternoon!", "Hi there!", "What's up?"]
 
-KEY_WORDS = ["tickets", "venmo", "fee", "fundraiser", "money", "dollar", "ticket", "pay"]
+KEY_WORDS = ["tickets", "venmo", "fee", "fundraiser", "money", "dollar", "ticket", "pay", "price", "pricing", "sell", "selling", "pay", "paymemt", "donate"]
 
 @eatdwell.app.route('/api/v1/random/', methods=["GET"])
 def get_random():
