@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Dropdown from './Dropdown';
 import EventPage from './EventPage';
-import update from 'immutability-helper';
 
 class EventList extends React.Component {
   constructor(props) {
@@ -13,13 +12,13 @@ class EventList extends React.Component {
       dropDownTitle: "☰ Sort By",
       options: [
         {
-          title:'Time',
-          selected: true
+          title: 'Time',
+          selected: true,
         },
         {
           title: 'Distance',
-          selected: false
-        }
+          selected: false,
+        },
       ],
     };
     if (this.props.listType === "bookmarked") {
@@ -29,40 +28,104 @@ class EventList extends React.Component {
     this.changeModal = this.changeModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.save = this.save.bind(this);
+    this.sortRes = this.sortRes.bind(this);
+    this.merge = this.merge.bind(this);
   }
 
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.events !== this.props.events) {
-      console.log("should come here after bookmark")
       const ress = [];
-      const { events } = this.props;
-      for (let i = 0; i < events.length; ++i) {
-        ress.push({
-          eventName: events[i].eventName,
-          dist: 100 * (i + 1),
-          isShown: "yes",
-          eventInfo: events[i],
-          clicks: 0
+      const { events, zipcode } = this.props;
+      let count = 0;
+      const distance = new google.maps.DistanceMatrixService();
+      for (let i = 0; i < events.length; i += 1) {
+        const eventLoc = events[i].location;
+        distance.getDistanceMatrix({
+          origins: [zipcode],
+          destinations: [eventLoc],
+          travelMode: 'WALKING',
+          unitSystem: google.maps.UnitSystem.IMPERIAL,
+        // eslint-disable-next-line no-loop-func
+        }, (response, status) => {
+          if (status == 'OK') {
+            ress.push({
+              eventName: events[i].eventName,
+              dist: response.rows[0].elements[0].distance.text,
+              startTime: events[i].startTime,
+              isShown: 'yes',
+              eventInfo: events[i],
+              clicks: 0,
+            });
+            count += 1;
+
+            if (count === events.length) {
+              // new Promise(() => this.sortRes(ress)).then((sortedRes) => {
+              //   this.setState({
+              //     res: sortedRes,
+              //   });
+              // });
+              const sortedRes = this.sortRes(ress);
+              this.setState({
+                res: sortedRes,
+              });
+            }
+          }
         });
       }
-      this.setState({
-        res: ress,
-      });
     }
+  }
+
+  sortRes(results) {
+    if (results.length <= 1) {
+      return results;
+    }
+
+    const middle = Math.floor(results.length / 2);
+    const left = results.slice(0, middle);
+    const right = results.slice(middle);
+
+    return this.merge(this.sortRes(left), this.sortRes(right));
+  }
+
+  merge(left, right) {
+    let res = [], leftIndex = 0, rightIndex = 0;
+    while (leftIndex < left.length && rightIndex < right.length) {
+      if (this.state.dropDownTitle == "Distance") {
+        if (left[leftIndex].dist < right[rightIndex].dist) {
+          res.push(left[leftIndex]);
+          leftIndex++;
+        } else {
+          res.push(right[rightIndex]);
+          rightIndex++;
+        }
+      } else {
+        if (left[leftIndex].startTime < right[rightIndex].startTime) {
+          res.push(left[leftIndex]);
+          leftIndex++;
+        } else {
+          res.push(right[rightIndex]);
+          rightIndex++;
+        }
+      }
+    }
+
+    return res.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
   }
 
   handleSelectSort(sortBy) {
     // eslint-disable-next-line react/no-unused-state
-    console.log(sortBy);
     let temp = this.state.options;
     for (var i = 0; i < temp.length; i++) {
       if (temp[i].title === sortBy) {
-        console.log("changing " + temp[i].title);
         temp[i].selected = !temp[i].selected;
-        console.log(temp[i].title + " set to " + temp[i].selected);
         if (temp[i].selected) {
           this.setState({
             dropDownTitle: temp[i].title
+          }, () => {
+            const sortedRes = this.sortRes(this.state.res);
+            this.setState({
+              res: sortedRes,
+            });
           });
         }
         else {
@@ -70,16 +133,13 @@ class EventList extends React.Component {
             dropDownTitle: "☰ Sort By"
           });
         }
-      }
-      else {
+      } else {
         temp[i].selected = false;
-        console.log(temp[i].title + " set to false");
       }
     }
     this.setState({
-      options: temp
+      options: temp,
     });
-    console.log(this.state.options)
   }
 
   // showModal(event) {
@@ -119,70 +179,15 @@ class EventList extends React.Component {
 
   closeModal(name) {
     let ress = this.state.res;
-    // console.log(ress);
-    // ress[0].isShown = !ress[0].isShown;
-    // ress[0].eventName = "farts and stuff";
-    // console.log(ress);
-    // console.log('aftersss: ' + ress[0].eventName);
-    // console.log('aftersss: ' + ress[0].isShown);
-    // console.log(ress);
     for (let i = 0; i < ress.length; i++) {
       if (ress[i].eventName === name) {
-        console.log("reaches here!")
-        // ress[i].eventName = "butts";
-        console.log('beforesss: ' + ress[i].isShown);
-        console.log('beforesss: ' + ress[i].clicks);
         ress[i].clicks = 0;
         ress[i].isShown = "";
-        console.log(ress);
-        console.log('afterrrrr: ' + ress[i].isShown);
-        console.log('afterrrrr: ' + ress[i].clicks);
-        console.log(this.state.res);
         this.setState({
-          res: ress
+          res: ress,
         });
       }
-      console.log("REEEEEEsE")
-      // console.log("ress during", ress);
-      // this.setState({
-      //   res: ress
-      // });
-      // console.log("res during: ", this.state.res);
     }
-    console.log('after after: ' + ress);
-    
-    console.log('finally: ' + this.state.res);
-    /*console.log("enters close modal")
-    var results = JSON.parse(JSON.stringify(this.state.res))
-    console.log(results);
-    var ressss = []
-    for (var i = 0; i < results.length; i++) {
-      if (results[i].eventName === name) {
-        /*results[i].isShown = false;
-        console.log(results[i].isShown);
-        
-        console.log(results);
-        console.log(results[i].isShown);
-        this.setState((prevState) => ({
-          res: [...prevState.res, ressss],
-        }), () => {
-          console.log("....")
-          console.log(this.state.res);
-        });
-        this.setState((prevState) => update(prevState, {res: {[i]: {isShown: {$set: false}}}}));
-        break;
-      }
-    }*/
-    // const results = this.state.res.slice();
-    // for (var i = 0; i < results.length; i++) {
-    //   if (results[i].eventName === name) {
-    //     results[i].isShown = "";
-    //     this.setState({
-    //       res: results,
-    //     });
-    //     break;
-    //   }
-    // }
   }
 
   save(id) {
@@ -190,14 +195,13 @@ class EventList extends React.Component {
   }
 
   render() {
-    console.log("render")
     const { options, res, isShown } = this.state;
     const list = res.map((dict) => (
       <div id={dict.eventName} onClick={() => this.changeModal(dict.eventName)}>
         <li className="list-group-item" key={dict.eventName}>
           { dict.eventName }
           <span className="distance">
-            { dict.dist } feet</span>
+            { this.state.dropDownTitle === "Distance" ? dict.dist : dict.startTime }</span>
         </li>
         <EventPage show={dict.clicks} handleClose={this.changeModal} eventInfo={dict.eventInfo} save={this.save} />
       </div>
@@ -206,9 +210,7 @@ class EventList extends React.Component {
       <div>
         <nav className="navbar navbar-light bg-light">
         <h4 className="list-title">{this.state.listType}</h4>
-        
           <span> <Dropdown title={this.state.dropDownTitle} res={options} toggle={this.handleSelectSort}/></span>
-        
         </nav>
 
         <div className={`overflow-auto ${this.props.listType}-list`}>
@@ -216,8 +218,6 @@ class EventList extends React.Component {
             { list }
           </ul>
         </div>
-
-       
       </div>
     );
   }
@@ -226,8 +226,8 @@ class EventList extends React.Component {
 EventList.propTypes = {
   events: PropTypes.array.isRequired,
   bookmark: PropTypes.func.isRequired,
+  zipcode: PropTypes.string.isRequired,
+  listType: PropTypes.string.isRequired,
 };
 
 export default EventList;
-
-

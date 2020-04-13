@@ -37,7 +37,7 @@ class EventPage extends React.Component {
       foodTypes += (', ');
     }
     return (
-      <div className={showHideClassName}>
+      <div className={showHideClassName} id={eventInfo.eventId}>
         <section className="modal-main">
           <h2>{eventInfo.eventName}
           <span>

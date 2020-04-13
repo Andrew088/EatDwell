@@ -41,8 +41,8 @@ class Dropdown extends React.Component {
   render() {
     const { open } = this.state;
     const { res } = this.props;
-  const list = res.map((option) => <li key={option.title} onClick={() => this.handleSubmit(option.title)} 
-  className={`filter-item selected-${option.selected}`}>{option.title}</li>);
+    const list = res.map((option) => <li key={option.title} onClick={() => this.handleSubmit(option.title)} 
+                                      className={`filter-item selected-${option.selected}`}>{option.title}</li>);
     const fullList = (
       <ul className="list-group dropdown-list">
         {list}
@@ -63,7 +63,7 @@ class Dropdown extends React.Component {
 Dropdown.propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
   res: PropTypes.array.isRequired,
-  onClick: PropTypes.func.isRequired,
+  toggle: PropTypes.func.isRequired,
 };
 
 export default Dropdown;

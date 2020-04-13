@@ -24,7 +24,7 @@ class App extends React.Component {
     const { zipcode } = this.state;
     let render;
     if (zipcode !== 0) {
-      render = <MainPage zipcode={zipcode}/>;
+      render = <MainPage zipcode={parseInt(zipcode, 10)} />;
     } else {
       render = (
         <div className="container">

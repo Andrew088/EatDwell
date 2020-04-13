@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { GoogleApiWrapper } from 'google-maps-react';
 import SearchBar from './SearchBar';
 import EventList from './EventList';
 import EventPage from './EventPage';
@@ -45,12 +46,12 @@ class MainPage extends React.Component {
   }
 
   handleQuery(query) {
-    if(query) {
+    if (query) {
       const matches = [];
       const curData = this.state.saved;
       for (let i = 0; i < curData.length; i += 1) {
-        for(let j = 0; j < curData[i].foodType.length; j+= 1){
-          if(query.toLowerCase() === curData[i].foodType[j].toLowerCase()) {
+        for (let j = 0; j < curData[i].foodType.length; j+= 1) {
+          if (query.toLowerCase() === curData[i].foodType[j].toLowerCase()) {
             matches.push(curData[i]);
           }
         }
@@ -92,6 +93,8 @@ class MainPage extends React.Component {
   }
 
   render() {
+    const { zipcode } = this.props;
+    const { booked, events } = this.state;
     return (
       <div className="container">
         <div className="text-center">
@@ -99,12 +102,22 @@ class MainPage extends React.Component {
         </div>
         <div className="row">
           <div className="col-8">
-            <MapContainer/>
+            <MapContainer zipcode={parseInt(zipcode, 10)} events={events} />
           </div>
           <div className="col-4">
             <div value={this.props}>
-              <EventList listType="bookmarked" events={this.state.booked} bookmark={this.bookmark} />
-              <EventList listType="events" events={this.state.events} bookmark={this.bookmark} />
+              <EventList
+                listType="bookmarked"
+                events={booked}
+                bookmark={this.bookmark}
+                zipcode={zipcode.toString()}
+              />
+              <EventList
+                listType="events"
+                events={events}
+                bookmark={this.bookmark}
+                zipcode={zipcode.toString()}
+              />
             </div>
           </div>
         </div>
@@ -117,4 +130,6 @@ MainPage.propTypes = {
   zipcode: PropTypes.number.isRequired,
 };
 
-export default MainPage;
+export default GoogleApiWrapper({
+  apiKey: 'AIzaSyART3iUaVq62aWfOfBKKc3Jup2fjTUDqB8',
+})(MainPage);

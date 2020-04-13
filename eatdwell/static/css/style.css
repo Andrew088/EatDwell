@@ -41,7 +41,7 @@ li {
     border: 1px solid gray;
     border-top: 0;
     background-color: white;
-    width: 78px;
+    width: 80px;
 }
 
 .selected-true {
@@ -57,7 +57,7 @@ span {
 }
 
 span button {
-    /* width: 78px; */ /* julia: got rid of this so it's all on one line*/
+    width: 80px; /* julia: got rid of this so it's all on one line*/ /*no doesnt work*/
 }
 
 .logo {
@@ -83,7 +83,7 @@ span button {
     background: white;
     width: 80%;
     height: auto;
-    max-height: 100%;   /* ... but make sure it does not overflow browser window */
+    max-height: 90%;   /* ... but make sure it does not overflow browser window */
     /* allow vertical scrolling if required */
     overflow-x: hidden;
     overflow-y: auto;
