@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // container 
+
 
 // eslint-disable-next-line react/prefer-stateless-function
 class EventPage extends React.Component {
@@ -39,10 +41,11 @@ class EventPage extends React.Component {
     return (
       <div className={showHideClassName} id={eventInfo.eventId}>
         <section className="modal-main">
-          <h2>{eventInfo.eventName}
+          <h2>{eventInfo.eventName}</h2> 
           <span className="modal-button" >
-            <button type="button" onClick={this.save}>Bookmark</button>
-            <button type="button" onClick={this.close}>X</button></span></h2>
+            <button id="bkmark" className="btn btn-outline-primary btn-sm" onClick={this.save}><FontAwesomeIcon icon="snowflake"/> Bookmark</button> 
+            <button id= "close" className= "btn btn-danger btn-sm" onClick={this.close}><FontAwesomeIcon icon="times" color="white"/></button></span>
+            
           <h4>Start Time: {eventInfo.startTime}</h4>
           <h4>End Time: {eventInfo.endTime}</h4>
           <h4>Food Type: {foodTypes} </h4>
