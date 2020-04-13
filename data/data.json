@@ -63,7 +63,7 @@
         {
             "eventId": 5,
             "eventName": "Coffee and Convo",
-            "date": "4/13/2020",
+            "date": "04/13/2020",
             "startTime": "09:00 AM",
             "endTime": "11:00 AM",
             "foodType": ["Coffee"],
@@ -78,7 +78,7 @@
         {
             "eventId": 6,
             "eventName": "Coffee and Convo",
-            "date": "4/14/2020",
+            "date": "04/14/2020",
             "startTime": "09:00 AM",
             "endTime": "11:00 AM",
             "foodType": ["Coffee"],
@@ -93,7 +93,7 @@
         {
             "eventId": 7,
             "eventName": "Coffee and Convo",
-            "date": "4/15/2020",
+            "date": "04/15/2020",
             "startTime": "09:00 AM",
             "endTime": "11:00 AM",
             "foodType": ["Coffee"],
@@ -108,7 +108,7 @@
         {
             "eventId": 8,
             "eventName": "Coffee and Convo",
-            "date": "4/16/2020",
+            "date": "04/16/2020",
             "startTime": "09:00 AM",
             "endTime": "11:00 AM",
             "foodType": ["Coffee"],
@@ -123,7 +123,7 @@
         {
             "eventId": 9,
             "eventName": "[UMTKD] Sushi & Karaoke Night",
-            "date": "4/16/2020",
+            "date": "04/16/2020",
             "startTime": "07:00 PM",
             "endTime": "09:00 PM",
             "foodType": ["Sushi"],
@@ -138,7 +138,7 @@
         {
             "eventId": 10,
             "eventName": "ECRC + BME Cookies & Careers",
-            "date": "4/13/2020",
+            "date": "04/13/2020",
             "startTime": "10:00 AM",
             "endTime": "12:00 PM",
             "foodType": ["Cookies"],
@@ -153,7 +153,7 @@
         {
             "eventId": 11,
             "eventName": "Donuts in the Dude with ISD",
-            "date": "4/14/2020",
+            "date": "04/14/2020",
             "startTime": "11:00 AM",
             "endTime": "12:30 PM",
             "foodType": ["Donuts"],
@@ -168,7 +168,7 @@
         {
             "eventId": 12,
             "eventName": "Coffee and Convo",
-            "date": "4/13/2020",
+            "date": "04/13/2020",
             "startTime": "09:00 AM",
             "endTime": "11:00 AM",
             "foodType": ["Coffee"],
@@ -183,7 +183,7 @@
         {
             "eventId": 13,
             "eventName": "Coffee and Convo",
-            "date": "4/14/2020",
+            "date": "04/14/2020",
             "startTime": "09:00 AM",
             "endTime": "11:00 AM",
             "foodType": ["Coffee"],
@@ -198,7 +198,7 @@
         {
             "eventId": 14,
             "eventName": "Coffee and Convo",
-            "date": "4/15/2020",
+            "date": "04/15/2020",
             "startTime": "09:00 AM",
             "endTime": "11:00 AM",
             "foodType": ["Coffee"],
@@ -213,7 +213,7 @@
         {
             "eventId": 15,
             "eventName": "GenAPA Snap Pizza Fundraiser",
-            "date": "4/13/2020",
+            "date": "04/13/2020",
             "startTime": "04:00 PM",
             "endTime": "09:00 PM",
             "foodType": ["Pizza"],
@@ -228,7 +228,7 @@
         {
             "eventId": 16,
             "eventName": "FSBM 2020 Which Wich Fundraiser",
-            "date": "4/15/2020",
+            "date": "04/15/2020",
             "startTime": "04:00 PM",
             "endTime": "09:00 PM",
             "foodType": ["Sandwich"],
@@ -243,7 +243,7 @@
         {
             "eventId": 17,
             "eventName": "Build Your Own Pokemon Terrarium",
-            "date": "4/15/2020",
+            "date": "04/15/2020",
             "startTime": "06:30 PM",
             "endTime": "07:30 PM",
             "foodType": ["Soda"],
@@ -258,7 +258,7 @@
         {
             "eventId": 18,
             "eventName": "SASE Family Hangout + Smash Tournament!",
-            "date": "4/15/2020",
+            "date": "04/15/2020",
             "startTime": "06:30 PM",
             "endTime": "07:30 PM",
             "foodType": ["Onigiri"],
@@ -273,7 +273,7 @@
         {
             "eventId": 19,
             "eventName": "Coffee and Read",
-            "date": "4/14/2020",
+            "date": "04/14/2020",
             "startTime": "9:00 AM",
             "endTime": "12:00 PM",
             "foodType": ["Coffee"],
@@ -288,7 +288,7 @@
         {
             "eventId": 20,
             "eventName": "KSEA Mentorship Event",
-            "date": "4/13/2020",
+            "date": "04/13/2020",
             "startTime": "06:00 PM",
             "endTime": "08:00 PM",
             "foodType": ["Pizza"],
@@ -303,7 +303,7 @@
         {
             "eventId": 21,
             "eventName": "Chillin",
-            "date": "4/13/2020",
+            "date": "04/13/2020",
             "startTime": "07:00 PM",
             "endTime": "10:00 PM",
             "foodType": ["Pizza"],
@@ -318,7 +318,7 @@
         {
             "eventId": 22,
             "eventName": "Troy High Pizza Day",
-            "date": "4/13/2020",
+            "date": "04/13/2020",
             "startTime": "07:00 PM",
             "endTime": "10:00 PM",
             "foodType": ["Pizza"],
@@ -333,7 +333,7 @@
         {
             "eventId": 23,
             "eventName": "Troy High Senior Send Off",
-            "date": "4/15/2020",
+            "date": "04/15/2020",
             "startTime": "07:00 PM",
             "endTime": "10:00 PM",
             "foodType": ["Pizza", "Ice Cream"],
@@ -348,7 +348,7 @@
         {
             "eventId": 24,
             "eventName": "Troy High Senior Band Recital",
-            "date": "4/14/2020",
+            "date": "04/14/2020",
             "startTime": "07:00 PM",
             "endTime": "10:00 PM",
             "foodType": ["Pizza", "Ice Cream"],
@@ -363,7 +363,7 @@
         {
             "eventId": 25,
             "eventName": "School Play Day",
-            "date": "4/15/2020",
+            "date": "04/15/2020",
             "startTime": "10:00 AM",
             "endTime": "01:00 PM",
             "foodType": ["Pizza", "Ice Cream", "Hamburger"],
@@ -378,7 +378,7 @@
         {
             "eventId": 26,
             "eventName": "School Marathon",
-            "date": "4/13/2020",
+            "date": "04/13/2020",
             "startTime": "10:00 AM",
             "endTime": "02:00 PM",
             "foodType": ["Ice Cream"],
@@ -393,7 +393,7 @@
         {
             "eventId": 27,
             "eventName": "Boba and Chat",
-            "date": "4/13/2020",
+            "date": "04/13/2020",
             "startTime": "02:00 PM",
             "endTime": "5:00 PM",
             "foodType": ["Boba"],
@@ -408,7 +408,7 @@
         {
             "eventId": 28,
             "eventName": "Boba and Chat",
-            "date": "4/13/2020",
+            "date": "04/13/2020",
             "startTime": "02:00 PM",
             "endTime": "5:00 PM",
             "foodType": ["Boba"],
@@ -423,7 +423,7 @@
         {
             "eventId": 29,
             "eventName": "Boba and Chat",
-            "date": "4/13/2020",
+            "date": "04/13/2020",
             "startTime": "02:00 PM",
             "endTime": "5:00 PM",
             "foodType": ["Boba"],
@@ -438,7 +438,7 @@
         {
             "eventId": 30,
             "eventName": "Boba and Chat",
-            "date": "4/13/2020",
+            "date": "04/13/2020",
             "startTime": "02:00 PM",
             "endTime": "5:00 PM",
             "foodType": ["Boba"],
@@ -453,7 +453,7 @@
         {
             "eventId": 31,
             "eventName": "Somerset Art Gallary Viewing",
-            "date": "4/15/2020",
+            "date": "04/15/2020",
             "startTime": "11:00 AM",
             "endTime": "02:00 PM",
             "foodType": ["Donuts", "Coffee"],
@@ -468,7 +468,7 @@
         {
             "eventId": 32,
             "eventName": "Somerset Coffee Chat",
-            "date": "4/13/2020",
+            "date": "04/13/2020",
             "startTime": "11:00 AM",
             "endTime": "05:00 PM",
             "foodType": ["Donuts", "Coffee"],
@@ -483,7 +483,7 @@
         {
             "eventId": 33,
             "eventName": "Somerset Coffee Chat",
-            "date": "4/14/2020",
+            "date": "04/14/2020",
             "startTime": "11:00 AM",
             "endTime": "05:00 PM",
             "foodType": ["Donuts", "Coffee"],
@@ -498,7 +498,7 @@
         {
             "eventId": 34,
             "eventName": "Somerset Coffee Chat",
-            "date": "4/15/2020",
+            "date": "04/15/2020",
             "startTime": "11:00 AM",
             "endTime": "05:00 PM",
             "foodType": ["Donuts", "Coffee"],
@@ -513,7 +513,7 @@
         {
             "eventId": 35,
             "eventName": "Somerset Coffee Chat",
-            "date": "4/13/2020",
+            "date": "04/13/2020",
             "startTime": "11:00 AM",
             "endTime": "05:00 PM",
             "foodType": ["Donuts", "Coffee"],
@@ -528,7 +528,7 @@
         {
             "eventId": 36,
             "eventName": "Troy Community Center: Learn how to Play Chess",
-            "date": "4/13/2020",
+            "date": "04/13/2020",
             "startTime": "05:00 PM",
             "endTime": "09:00 PM",
             "foodType": ["Pizza", "Salad", "Soda"],
@@ -543,7 +543,7 @@
         {
             "eventId": 37,
             "eventName": "Troy Community Center: Learn how to Swim",
-            "date": "4/13/2020",
+            "date": "04/13/2020",
             "startTime": "07:00 PM",
             "endTime": "09:00 PM",
             "foodType": ["Ice Cream"],
