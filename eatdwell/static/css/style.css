@@ -1,5 +1,10 @@
+a:visited, a:hover {
+    text-decoration: none;
+    color: black;
+}
+
 .container {
-    margin-top: 50px;
+    margin-top: 5px;
 }
 .list-title {
     margin-top: 15px;
@@ -7,12 +12,13 @@
 }
 .bookmarked-list {
     height: 150px;
-    margin-top: 15px;
+    margin-top: 5px;
 }
 .events-list {
+    /* height: 150px; */
     height: 250px;
-    margin-top: 15px;
-    display: inline-block;
+    margin-top: 5px;
+    /* display: inline-block; */
 }
 .distance {
     color: gray;
@@ -35,6 +41,10 @@ li {
     list-style-type: none;
 }
 
+.list-group-item {
+    width: 350px;
+}
+
 .filter-item {
     padding: 2px 7px;
     border-radius: 0;
@@ -48,7 +58,7 @@ li {
     background-color: lightgray;
 }
 
-span {
+span.modal-button {
     display: block;
     float: right;
     font-size: 14px;
@@ -61,11 +71,15 @@ span button {
 }
 
 .logo {
-    
+    margin: 0 35% 0 35%;
 }
 
 .text-center {
-    margin-bottom: 35px;
+    margin-bottom: 25px;
+}
+
+.text-center h1 {
+    font-size: 4rem;
 }
 
 .modal {
@@ -114,4 +128,26 @@ img.info {
 #infoWindow {
     display: inline-block;
     justify-content: center;
+}
+
+.datepicker {
+    width: 350px;
+    height: 35px;
+    margin: 10px 0 10px 0;
+}
+
+h5.no-bookmarked-items {
+    font-weight: normal;
+    text-align: center;
+    margin-top: 17%;
+}
+
+h5.no-events-items {
+    font-weight: normal;
+    text-align: center;
+    margin-top: 30%;
+}
+
+.empty-list {
+    background-color: #f8f9fa;
 }

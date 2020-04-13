@@ -5,6 +5,7 @@ import SearchBar from './SearchBar';
 import EventList from './EventList';
 import EventPage from './EventPage';
 import MapContainer from "./MapContainer";
+import DatePicker from 'react-date-picker';
 // import logo from '../img/eatdwell.png';
 // import './style.css';
 
@@ -20,10 +21,12 @@ class MainPage extends React.Component {
       query: '',
       // eslint-disable-next-line react/no-unused-state
       sortBy: '',
+      date: new Date(),
     };
     this.fetchEvents = this.fetchEvents.bind(this);
     this.handleQuery = this.handleQuery.bind(this);
     this.bookmark = this.bookmark.bind(this);
+    this.onChange = this.onChange.bind(this);
   }
 
   componentDidMount() {
@@ -92,6 +95,45 @@ class MainPage extends React.Component {
     }
   }
 
+  convert_to_num(month) {
+    let dateHash = {
+      Jan : "01",
+      Feb: "02",
+      Mar: "03",
+      Apr: "04",
+      May: "05",
+      Jun: "06",
+      Jul: "07",
+      Aug: "08",
+      Sep: "09",
+      Oct: "10",
+      Nov: "11",
+      Dec: "12"
+    };
+    return dateHash[month];
+  }
+
+  onChange(date) {
+    this.setState({ date });
+    console.log(date);
+    let formatted_date = date.toString().split(" ").slice(1, 4);
+    console.log(formatted_date);
+    formatted_date[0] = this.convert_to_num(formatted_date[0]);
+    let formatted_date_str = formatted_date.join('')
+    console.log(formatted_date_str);
+
+    const url = `/api/v1/${this.props.zipcode}?date=${formatted_date_str}`;
+    fetch(url, { method: 'GET' })
+      .then((response) => {
+        if (!response.ok) throw Error(response.statusText);
+        return response.json();
+      })
+      .then((data) => {
+        this.setState({ saved: data.data, events: data.data });
+      })
+      .catch((error) => console.log(error));
+  };
+
   render() {
     const { zipcode } = this.props;
     const { booked, events } = this.state;
@@ -112,6 +154,7 @@ class MainPage extends React.Component {
                 bookmark={this.bookmark}
                 zipcode={zipcode.toString()}
               />
+              <DatePicker className="datepicker" showLeadingZeros={true} onChange={this.onChange} value={this.state.date}/>
               <EventList
                 listType="events"
                 events={events}

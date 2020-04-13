@@ -196,7 +196,8 @@ class EventList extends React.Component {
 
   render() {
     const { options, res, isShown } = this.state;
-    const list = res.map((dict) => (
+    let empty_list = ""
+    let list = res.map((dict) => (
       <div id={dict.eventName} onClick={() => this.changeModal(dict.eventName)}>
         <li className="list-group-item" key={dict.eventName}>
           { dict.eventName }
@@ -206,6 +207,20 @@ class EventList extends React.Component {
         <EventPage show={dict.clicks} handleClose={this.changeModal} eventInfo={dict.eventInfo} save={this.save} />
       </div>
     ));
+    if (this.props.events.length === 0) {
+      let comment = ""
+      if (this.props.listType === "bookmarked") {
+        comment = "You have no bookmarked items"
+        empty_list = "empty-list"
+      }
+      else {
+        comment = "There are no events at this time"
+        empty_list = "empty-list"
+      }
+      list = (
+        <h5 className={`no-${this.props.listType}-items`}>{ comment }</h5>
+      )
+    }
     return (
       <div>
         <nav className="navbar navbar-light bg-light">
@@ -213,7 +228,7 @@ class EventList extends React.Component {
           <span> <Dropdown title={this.state.dropDownTitle} res={options} toggle={this.handleSelectSort}/></span>
         </nav>
 
-        <div className={`overflow-auto ${this.props.listType}-list`}>
+        <div className={`overflow-auto ${this.props.listType}-list ${empty_list}`}>
           <ul className="list-group">
             { list }
           </ul>

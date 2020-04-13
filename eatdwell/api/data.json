@@ -2,7 +2,8 @@
     "data": [
         {
             "eventId": 1,
-            "eventName": "EECS 493 Snowflakes & Snowtears: Goodbye Party",
+            "eventName": "EECS 493333 Snowflakes & Snowtears: Goodbye Party",
+            "date": "04/13/2020",
             "startTime": "09:00 PM",
             "endTime": "11:59 PM",
             "foodType": ["Pizza", "Marshmallows"],
@@ -17,12 +18,13 @@
         {
             "eventId": 2,
             "eventName": "MPowered Sledding Pow Wow",
+            "date": "04/13/2020",
             "startTime": "04:00 PM",
             "endTime": "06:00 PM",
             "foodType": ["Hot Cocoa"],
             "cover": "./uploads/mpowered_cover.jpg",
             "location": "401 Washtenaw Ave, Ann Arbor, MI 48109",
-            "zipcode": "48109",
+            "zipcode": 48109,
             "description": "Grab your sleds, grab your friends, lets go slip and slide all the way to the end! Bring your own sled! Free for all.",
             "uploaded-photos": ["./uploaded/mpowered-1.jpg", "./uploaded/mpowered-2.jpg", "/uploaded/mpowered-3.jpg"],           
             "guest-count": 28,
@@ -31,6 +33,7 @@
         {
             "eventId": 3,
             "eventName": "SASE Winter Ball",
+            "date": "04/14/2020",
             "startTime": "07:00 PM",
             "endTime": "10:00 PM",
             "foodType": ["Steak","Spring Rolls", "Fortune Cookies"],
@@ -45,6 +48,7 @@
         {
             "eventId": 4,
             "eventName": "GenAPA Krispy Kreme Fundraiser",
+            "date": "04/15/2020",
             "startTime": "10:00 AM",
             "endTime": "4:00 PM",
             "foodType": ["Donuts"],

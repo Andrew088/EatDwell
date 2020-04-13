@@ -40,7 +40,7 @@ class EventPage extends React.Component {
       <div className={showHideClassName} id={eventInfo.eventId}>
         <section className="modal-main">
           <h2>{eventInfo.eventName}
-          <span>
+          <span className="modal-button" >
             <button type="button" onClick={this.save}>Bookmark</button>
             <button type="button" onClick={this.close}>X</button></span></h2>
           <h4>Start Time: {eventInfo.startTime}</h4>

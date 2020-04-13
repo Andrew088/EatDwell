@@ -11,6 +11,7 @@ import json
 from json import JSONDecodeError
 import flask
 import eatdwell
+import datetime
 
 RANDOM_WORDS = ["whoa", "tacos", "nice", "sliver", "manifest", "colloquial",
                 "inheritance", "silly", "niche"]
@@ -46,6 +47,9 @@ def show_image(img_url):
 @eatdwell.app.route('/api/v1/<int:zipcode>', methods=["GET"])
 def get_event(zipcode):
     """return a list of events at that location"""
+    today = datetime.date.today()
+    today = today.strftime("%m%d%Y")
+    date_of_event = flask.request.args.get('date', default=today)
     freeEvents = { "data": [] }
     #/mnt/c/Users/mimiz/Documents/EECS493/EatDwell/data.json
     print(os.path.exists('data/data.json'))
@@ -64,13 +68,15 @@ def get_event(zipcode):
         exit(1)
     for i in data["data"]:
         if zipcode == i["zipcode"]:
-            """look into description"""
-            freeFood = True
-            split_desc = i["description"].split()
-            for j in KEY_WORDS:
-                if j in split_desc:
-                    freeFood = False
-                    break
-            if freeFood:
-                freeEvents["data"].append(i)
+            formatted_date = i["date"].split("/")
+            if date_of_event == "".join(formatted_date):
+                """look into description"""
+                freeFood = True
+                split_desc = i["description"].split()
+                for j in KEY_WORDS:
+                    if j in split_desc:
+                        freeFood = False
+                        break
+                if freeFood:
+                    freeEvents["data"].append(i)
     return flask.jsonify(**freeEvents)

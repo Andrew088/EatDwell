@@ -17,7 +17,12 @@ class App extends React.Component {
   }
 
   handleZipcodeChange(zipcode) {
-    this.setState({ zipcode });
+    if ((zipcode === "") || (zipcode.length < 5)) {
+      alert("Please enter a valid zipcode");
+    }
+    else {
+      this.setState({ zipcode });
+    }
   }
 
   render() {
