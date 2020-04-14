@@ -183,8 +183,8 @@ h5.no-events-items {
     /* background-color: #c7fbfd; */
     /* background-color: lightblue; */
     width: 100%;
-    height: 120vh;
-    background: linear-gradient(rgba(26, 26, 26, 0.2), rgba(26, 26, 26, 0.2)), url('https://impressivenature.com/wp-content/uploads/IN_Winter_Snow_59a712891ccf32ec5a009487.jpeg');
+    height: 130vh;
+    background: linear-gradient(rgba(26, 26, 26, 0.2), rgba(26, 26, 26, 0.2)), url('https://impressivenature.com/wp-content/uploads/IN_Winter_Snow_59a712891ccf32ec5a009487.jpeg') no-repeat center fixed;
 }
 
 
