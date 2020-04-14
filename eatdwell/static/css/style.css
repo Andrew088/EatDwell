@@ -180,14 +180,16 @@ h5.no-events-items {
 
 .background {
     background-size: cover;
-    background-color: #c7fbfd;
+    /* background-color: #c7fbfd; */
+    background-color: lightblue;
 }
 
 
 #app {
     /* background-image: url('https://impressivenature.com/wp-content/uploads/IN_Winter_Snow_59a712891ccf32ec5a009487.jpeg'); */
     background-size: cover;
-    background-color: #c7fbfd;
+    /* background-color: #c7fbfd; */
+    background-color: lightblue;
     min-height: 100vh;
 }
 
