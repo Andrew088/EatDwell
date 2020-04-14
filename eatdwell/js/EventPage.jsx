@@ -64,11 +64,12 @@ class EventPage extends React.Component {
             <button id="bkmark" className="btn btn-outline-primary btn-sm" onClick={this.state.bookmark ? this.unbookmark : this.save}><FontAwesomeIcon icon="snowflake"/>{this.state.bookmark ? 'Unbookmark ' : 'Bookmark '}</button>
             <button id= "close" className= "btn btn-danger btn-sm" onClick={this.close}><FontAwesomeIcon icon="times" color="white"/></button></span></h2>
           
-          <button id="verified" className="btn btn-success btn-med"> <FontAwesomeIcon icon="check-circle"/> Verify</button>
+          <button id="verified" className="btn btn-success btn-med mr-1"> <FontAwesomeIcon icon="check-circle"/> Verify</button>
+          <button id="unverified" className="btn btn-outline-warning btn-med"> <FontAwesomeIcon icon="question-circle"/> Not Sure</button>
 
           
 
-          <h4>Start Time: {eventInfo.startTime}</h4>
+          <h4 id="start">Start Time: {eventInfo.startTime}</h4>
           <h4>End Time: {eventInfo.endTime}</h4>
           <h4>Distance: {distance}</h4>
           <h4>Food Type: {foodTypes} </h4>
