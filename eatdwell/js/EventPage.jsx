@@ -72,7 +72,7 @@ class EventPage extends React.Component {
           <h4 id="start">Start Time: {eventInfo.startTime}</h4>
           <h4>End Time: {eventInfo.endTime}</h4>
           <h4>Distance: {distance}</h4>
-          <h4>Food Type: {foodTypes} </h4>
+          <h4>Food Type: {foodTypes.slice(0, -2)} </h4>
           <p>{eventInfo.description}</p>
           <img className="eventImage" src={eventInfo.cover} alt="profile" />
         </section>

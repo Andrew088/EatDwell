@@ -266,7 +266,7 @@
             "location": "South Quad University Of Michigan, 600 East Madison, Ann Arbor, Michigan 48104",
             "zipcode": 48104,
             "description": "Think you're good at Smash? Compete against the other members of SASE! If Smash isn't your thing, play some board games and get to know families other than yours! \nSnacks will be provided! Come to the basement of South Quad then turn right to find the game room.",
-            "uploadedPhotos": ["./uploads/saseLogo.png"],            
+            "uploadedPhotos": ["./uploads/saseLogo.jpg"],            
             "guestCount": 14,
             "link": "https://www.facebook.com/events/394009211378132/"
         },
@@ -543,7 +543,7 @@
         {
             "eventId": 37,
             "eventName": "Troy Community Center: Learn how to Swim",
-            "date": "04/13/2020",
+            "date": "04/14/2020",
             "startTime": "07:00 PM",
             "endTime": "09:00 PM",
             "foodType": ["Ice Cream"],
