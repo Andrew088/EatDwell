@@ -1,4 +1,5 @@
 import React from 'react';
+import SnowStorm from 'react-snowstorm';
 import SearchBar from './SearchBar';
 import MainPage from './MainPage';
 import logo from '../img/eatdwell.png';
@@ -45,7 +46,7 @@ class App extends React.Component {
     return (
       
       <div id="app">
-        
+        <SnowStorm />
         { render }
       </div>
     );
