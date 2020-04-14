@@ -453,7 +453,7 @@
         {
             "eventId": 31,
             "eventName": "Somerset Art Gallary Viewing",
-            "date": "04/15/2020",
+            "date": "04/13/2020",
             "startTime": "11:00 AM",
             "endTime": "02:00 PM",
             "foodType": ["Donuts", "Coffee"],
@@ -468,7 +468,7 @@
         {
             "eventId": 32,
             "eventName": "Somerset Coffee Chat",
-            "date": "04/13/2020",
+            "date": "04/14/2020",
             "startTime": "11:00 AM",
             "endTime": "05:00 PM",
             "foodType": ["Donuts", "Coffee"],
@@ -483,7 +483,7 @@
         {
             "eventId": 33,
             "eventName": "Somerset Coffee Chat",
-            "date": "04/14/2020",
+            "date": "04/15/2020",
             "startTime": "11:00 AM",
             "endTime": "05:00 PM",
             "foodType": ["Donuts", "Coffee"],
@@ -498,7 +498,7 @@
         {
             "eventId": 34,
             "eventName": "Somerset Coffee Chat",
-            "date": "04/15/2020",
+            "date": "04/16/2020",
             "startTime": "11:00 AM",
             "endTime": "05:00 PM",
             "foodType": ["Donuts", "Coffee"],

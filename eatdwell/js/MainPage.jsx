@@ -52,9 +52,12 @@ class MainPage extends React.Component {
   }
 
   handleQuery(query) {
+    this.handleFetchReq(query, this.state.saved);
+  }
+
+  handleFetchReq(query, curData){
     if (query) {
       const matches = [];
-      const curData = this.state.saved;
       for (let i = 0; i < curData.length; i += 1) {
         for (let j = 0; j < curData[i].foodType.length; j+= 1) {
           if (query.toLowerCase() === curData[i].foodType[j].toLowerCase()) {
@@ -67,13 +70,12 @@ class MainPage extends React.Component {
         alert(":( No events serving "+query);
       }
       console.log(matches);
-      this.setState({events: matches}, ()=>{console.log("should rerender evetns")});
+      this.setState({saved: curData, events: matches, query: query}, ()=>{console.log("should rerender evetns")});
     }
     else {
-      this.setState({events: this.state.saved});
+      this.setState({saved: curData, events: curData, query: ''});
     }
   }
-
   /*handleBook(e) {
     e.preventDefault();
 
@@ -155,12 +157,14 @@ class MainPage extends React.Component {
         return response.json();
       })
       .then((data) => {
-        this.setState({ saved: data.data, events: data.data });
+        this.handleFetchReq(this.state.query, data.data);
       })
       .catch((error) => console.log(error));
   };
 
   render() {
+    console.log("hello friends");
+    console.log(this.state.events);
     const { zipcode } = this.props;
     const { booked, events } = this.state;
     return (
