@@ -15,6 +15,7 @@ class App extends React.Component {
       zipcode: 0,
     };
     this.handleZipcodeChange = this.handleZipcodeChange.bind(this);
+    this.goBack = this.goBack.bind(this);
   }
 
   handleZipcodeChange(zipcode) {
@@ -26,14 +27,21 @@ class App extends React.Component {
     }
   }
 
+  goBack() {
+    console.log("enters back")
+    this.setState({
+      zipcode: 0,
+    });
+  }
+
   render() {
     const { zipcode } = this.state;
     let render;
     
     if (zipcode !== 0) {
       render = (
-        <MainPage zipcode={parseInt(zipcode, 10)} />
-      )
+        <MainPage zipcode={parseInt(zipcode, 10)} goBack={this.goBack} />
+      );
     } else {
       render = (
         <div className="container">
@@ -44,10 +52,13 @@ class App extends React.Component {
       );
     }
     return (
-      <div id="app">
-        {/* #BDD8F5 */}
-        <SnowStorm snowCharacter="❄" flakeWidth={20} flakeHeight={20} snowColor="white" />
-        { render }
+      <div>
+        <div className="snow">
+          <SnowStorm snowCharacter="❄" flakeWidth={20} flakeHeight={20} snowColor="white" />
+        </div>
+        <div id="app">
+          { render }
+        </div>
       </div>
     );
   }

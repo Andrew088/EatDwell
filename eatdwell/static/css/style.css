@@ -224,3 +224,12 @@ h5.no-events-items {
 .row {
     margin-top: 50px;
 }
+
+.snow {
+    z-index: -1;
+}
+
+.white-text h6 {
+    color: white !important;
+    text-align: left;
+}

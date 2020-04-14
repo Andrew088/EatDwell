@@ -19,6 +19,8 @@ class EventPage extends React.Component {
 
   close(e) {
     e.preventDefault();
+    document.getElementById(this.props.eventInfo.eventId).classList.remove("display-block");
+    document.getElementById(this.props.eventInfo.eventId).classList.add("display-none");
     // eslint-disable-next-line react/destructuring-assignment
     console.log(this.props.eventInfo.eventName);
     //this.props.handleClose(this.props.eventInfo.eventName);

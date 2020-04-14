@@ -179,7 +179,8 @@ class MainPage extends React.Component {
     const { booked, events } = this.state;
     return (
       <div className="container">
-        <div id = "bar">
+        <div id = "bar" className="white-text">
+          <h6 onClick={this.props.goBack}>Switch zipcodes</h6>
           <div className="text-center">
             <SearchBar defaultText="Search specific food / drinks..." onChange={this.handleQuery} />
           </div>
@@ -216,6 +217,7 @@ class MainPage extends React.Component {
 
 MainPage.propTypes = {
   zipcode: PropTypes.number.isRequired,
+  goBack: PropTypes.func.isRequired,
 };
 
 export default GoogleApiWrapper({
