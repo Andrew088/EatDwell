@@ -35,9 +35,10 @@ class App extends React.Component {
       )
     } else {
       render = (
-        
-        <div id="bar">
-          <SearchBar defaultText="Enter zipcode here..." onChange={this.handleZipcodeChange} />
+        <div className="container">
+          <div id="bar">
+            <SearchBar defaultText="Enter zipcode here..." onChange={this.handleZipcodeChange} />
+          </div>
         </div>
       );
     }

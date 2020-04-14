@@ -164,36 +164,37 @@ class MainPage extends React.Component {
     const { zipcode } = this.props;
     const { booked, events } = this.state;
     return (
-      <div id = "bar">
-        <div className="text-center">
-          <SearchBar defaultText="Search specific food / drinks..." onChange={this.handleQuery} />
+      <div className="container">
+        <div id = "bar">
+          <div className="text-center">
+            <SearchBar defaultText="Search specific food / drinks..." onChange={this.handleQuery} />
+          </div>
         </div>
-        <div className="container">
-          <div className="row">
-            <div className="col-8">
-              <MapContainer zipcode={parseInt(zipcode, 10)} events={events} />
-            </div>
-            <div className="col-4">
-              <div value={this.props}>
-                <EventList
-                  listType="bookmarked"
-                  events={booked}
-                  bookmark={this.bookmark}
-                  zipcode={zipcode.toString()}
-                />
-                <DatePicker className="datepicker" showLeadingZeros={true} onChange={this.onChange} value={this.state.date}/>
-                <EventList
-                  listType="events"
-                  events={events}
-                  bookmark={this.bookmark}
-                  zipcode={zipcode.toString()}
-                  unbookmark={this.unbookmark}
-                />
-              </div>
+        <div className="row">
+          <div className="col-8">
+            <MapContainer zipcode={parseInt(zipcode, 10)} events={events} />
+          </div>
+          <div className="col-4">
+            <div value={this.props}>
+              <EventList
+                listType="bookmarked"
+                events={booked}
+                bookmark={this.bookmark}
+                zipcode={zipcode.toString()}
+              />
+              <DatePicker className="datepicker" showLeadingZeros={true} onChange={this.onChange} value={this.state.date}/>
+              <EventList
+                listType="events"
+                events={events}
+                bookmark={this.bookmark}
+                zipcode={zipcode.toString()}
+                unbookmark={this.unbookmark}
+              />
             </div>
           </div>
         </div>
       </div>
+      
     );
   }
 }

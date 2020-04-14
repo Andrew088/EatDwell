@@ -100,11 +100,12 @@ span button {
 }
 
 .text-center {
-    margin-bottom: 25px;
+    /* margin-bottom: 25px; */
 }
 
 .text-center h1 {
     font-size: 4rem;
+    margin-bottom: 0;
 }
 
 .modal {
@@ -203,6 +204,20 @@ h5.no-events-items {
 
 #width {
     margin: 0 auto;
-    width: 175vh;
+    width: 100%;
 
+}
+
+.react-date-picker__wrapper {
+    background-color: white;
+    border-color: white;
+}
+
+.navbar-light {
+    border-radius: 8px;
+    background-color: white!important;
+}
+
+.row {
+    margin-top: 50px;
 }
