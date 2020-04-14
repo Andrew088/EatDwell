@@ -83,8 +83,7 @@ span button {
 }
 
 .logo {
-    margin: 0 40% 0 40%;
-    
+    margin: 0 33% 0 33%;
     background-size: cover;
 }
 
@@ -181,7 +180,8 @@ h5.no-events-items {
 
 .background {
     background-size: cover;
-    background-color: transparent;
+    /* background-color: #c7fbfd; */
+    /* background-color: lightblue; */
 }
 
 
@@ -189,6 +189,7 @@ h5.no-events-items {
     background-image: url('https://impressivenature.com/wp-content/uploads/IN_Winter_Snow_59a712891ccf32ec5a009487.jpeg');
     background-size: cover;
     background-color: #c7fbfd;
+    /* background-color: lightblue; */
     min-height: 100vh;
 }
 

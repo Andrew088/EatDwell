@@ -61,7 +61,7 @@ class EventPage extends React.Component {
         <section className="modal-main">
           <h2><a href={eventInfo.link}>{eventInfo.eventName}</a>
           <span className="modal-button" >
-            <button id="bkmark" className="btn btn-outline-primary btn-sm" onClick={this.state.bookmark ? this.unbookmark : this.save}><FontAwesomeIcon icon="snowflake"/>{this.state.bookmark ? 'Unbookmark ' : 'Bookmark '}</button>
+            <button id="bkmark" className="btn btn-outline-primary btn-sm" onClick={this.state.bookmark ? this.unbookmark : this.save}><FontAwesomeIcon icon="snowflake"/>{this.state.bookmark ? ' Unbookmark' : ' Bookmark'}</button>
             <button id= "close" className= "btn btn-danger btn-sm" onClick={this.close}><FontAwesomeIcon icon="times" color="white"/></button></span></h2>
           
           <button id="verified" className="btn btn-success btn-med mr-1"> <FontAwesomeIcon icon="check-circle"/> Verify</button>
