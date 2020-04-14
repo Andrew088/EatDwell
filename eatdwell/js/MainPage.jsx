@@ -6,6 +6,8 @@ import EventList from './EventList';
 import EventPage from './EventPage';
 import MapContainer from "./MapContainer";
 import DatePicker from 'react-date-picker';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 // import logo from '../img/eatdwell.png';
 // import './style.css';
 
@@ -59,6 +61,10 @@ class MainPage extends React.Component {
             matches.push(curData[i]);
           }
         }
+      }
+
+      if (matches.length == 0){
+        alert(":( No events serving "+query);
       }
       console.log(matches);
       this.setState({events: matches}, ()=>{console.log("should rerender evetns")});
