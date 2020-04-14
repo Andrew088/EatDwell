@@ -1,4 +1,5 @@
 import React from 'react';
+import SnowStorm from 'react-snowstorm';
 import SearchBar from './SearchBar';
 import MainPage from './MainPage';
 import logo from '../img/eatdwell.png';
@@ -43,9 +44,9 @@ class App extends React.Component {
       );
     }
     return (
-      
       <div id="app">
-        
+        {/* #BDD8F5 */}
+        <SnowStorm snowCharacter="❄" flakeWidth={20} flakeHeight={20} snowColor="white" />
         { render }
       </div>
     );
