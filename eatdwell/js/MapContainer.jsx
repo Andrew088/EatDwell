@@ -158,7 +158,14 @@ class MapContainer extends React.Component {
 
   render() {
     const { currentLoc, currentLocMarker } = this.state;
-    console.log("render ,current loc: ", currentLoc);
+    const button = (
+      <button
+        type="button"
+        onClick={this.showDetails.bind(this, this.state.selectedPlace.eventId)}
+      >
+        Show details
+      </button>
+    );
     return (
       <div>
         <Map
@@ -178,12 +185,7 @@ class MapContainer extends React.Component {
           >
             <div>
               <h3>{this.state.selectedPlace.name}</h3>
-              <button
-                type="button"
-                onClick={this.showDetails.bind(this, this.state.selectedPlace.eventId)}
-              >
-                Show details
-              </button>
+              {this.state.selectedPlace.name == "Current Location" ? null : button }
             </div>
           </InfoWindowEx>
         </Map>

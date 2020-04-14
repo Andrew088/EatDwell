@@ -35,6 +35,7 @@ class EventList extends React.Component {
     this.save = this.save.bind(this);
     this.sortRes = this.sortRes.bind(this);
     this.merge = this.merge.bind(this);
+    this.unbookmark = this.unbookmark.bind(this);
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -212,6 +213,11 @@ class EventList extends React.Component {
     this.props.bookmark(id);
   }
 
+  unbookmark(id) {
+    console.log("enters event list unbookmark")
+    this.props.unbookmark(id);
+  }
+
   render() {
     const { options, res, isShown } = this.state;
     let empty_list = ""
@@ -226,9 +232,10 @@ class EventList extends React.Component {
           show={dict.clicks}
           handleClose={this.changeModal}
           eventInfo={dict.eventInfo}
-          save={this.save} 
+          save={this.save}
           distance={dict.dist}
-          unbookmark={this.props.unbookmark}
+          unbookmark={this.unbookmark}
+          bookmark={dict.eventInfo.bookmark}
         />
       </div>
     ));

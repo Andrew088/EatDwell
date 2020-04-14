@@ -36,6 +36,32 @@ class MainPage extends React.Component {
     this.fetchEvents();
   }
 
+  onChange(date) {
+    this.setState({ date });
+    console.log(date);
+    let formatted_date = date.toString().split(" ").slice(1, 4);
+    console.log(formatted_date);
+    formatted_date[0] = this.convert_to_num(formatted_date[0]);
+    let formatted_date_str = formatted_date.join('')
+    console.log(formatted_date_str);
+
+    const url = `/api/v1/${this.props.zipcode}?date=${formatted_date_str}`;
+    fetch(url, { method: 'GET' })
+      .then((response) => {
+        if (!response.ok) throw Error(response.statusText);
+        return response.json();
+      })
+      .then((data) => {
+        data.data.forEach((event) => { event.bookmark = false; }, data.data);
+        this.handleFetchReq(this.state.query, data.data);
+      })
+      .catch((error) => console.log(error));
+  }
+
+  handleQuery(query) {
+    this.handleFetchReq(query, this.state.saved);
+  }
+
   fetchEvents() {
     const { zipcode } = this.props;
     console.log(zipcode);
@@ -46,16 +72,14 @@ class MainPage extends React.Component {
         return response.json();
       })
       .then((data) => {
+        data.data.forEach((event) => { event.bookmark = false; }, data.data);
         this.setState({ saved: data.data, events: data.data });
       })
       .catch((error) => console.log(error));
   }
 
-  handleQuery(query) {
-    this.handleFetchReq(query, this.state.saved);
-  }
 
-  handleFetchReq(query, curData){
+  handleFetchReq(query, curData) {
     if (query) {
       const matches = [];
       for (let i = 0; i < curData.length; i += 1) {
@@ -70,38 +94,42 @@ class MainPage extends React.Component {
         alert(":( No events serving "+query);
       }
       console.log(matches);
-      this.setState({saved: curData, events: matches, query: query}, ()=>{console.log("should rerender evetns")});
+      this.setState({saved: curData, events: matches, query});
     }
     else {
       this.setState({saved: curData, events: curData, query: ''});
     }
   }
-  /*handleBook(e) {
-    e.preventDefault();
-
-  }*/
 
   unbookmark(id) {
-    console.log(".");
+    console.log("unbookmark main page")
     const { booked } = this.state;
     let found = false;
     let i = 0;
     for (; i < booked.length; ++i) {
       if (booked[i].eventId === id) {
-        console.log("entershereere ", i);
         found = true;
         break;
       }
     }
     if (found) {
-      console.log("sdf;lkjsda")
-      booked.slice(i, 1);
+      console.log(booked);
+      booked.splice(i);
       this.setState({ booked });
+      console.log(booked);
+      const { events } = this.state;
+      for (let j = 0; j < events.length; ++j) {
+        if (events[j].eventId === id) {
+          events[j].bookmark = false;
+          this.setState({
+            events,
+          });
+        }
+      }
     }
   }
 
   bookmark(id) {
-    console.log("bookmark button makes it here");
     console.log(id);
     const { booked } = this.state;
     let found = false;
@@ -115,6 +143,7 @@ class MainPage extends React.Component {
       const { events } = this.state;
       for (let j = 0; j < events.length; ++j) {
         if (events[j].eventId === id) {
+          events[j].bookmark = true;
           this.setState({
             booked: [...booked, events[j]],
           });
@@ -141,26 +170,7 @@ class MainPage extends React.Component {
     return dateHash[month];
   }
 
-  onChange(date) {
-    this.setState({ date });
-    console.log(date);
-    let formatted_date = date.toString().split(" ").slice(1, 4);
-    console.log(formatted_date);
-    formatted_date[0] = this.convert_to_num(formatted_date[0]);
-    let formatted_date_str = formatted_date.join('')
-    console.log(formatted_date_str);
-
-    const url = `/api/v1/${this.props.zipcode}?date=${formatted_date_str}`;
-    fetch(url, { method: 'GET' })
-      .then((response) => {
-        if (!response.ok) throw Error(response.statusText);
-        return response.json();
-      })
-      .then((data) => {
-        this.handleFetchReq(this.state.query, data.data);
-      })
-      .catch((error) => console.log(error));
-  };
+  
 
   render() {
     console.log("hello friends");
@@ -185,6 +195,7 @@ class MainPage extends React.Component {
                 events={booked}
                 bookmark={this.bookmark}
                 zipcode={zipcode.toString()}
+                unbookmark={this.unbookmark}
               />
               <DatePicker className="datepicker" showLeadingZeros={true} onChange={this.onChange} value={this.state.date}/>
               <EventList
