@@ -26,6 +26,7 @@ class MainPage extends React.Component {
     this.fetchEvents = this.fetchEvents.bind(this);
     this.handleQuery = this.handleQuery.bind(this);
     this.bookmark = this.bookmark.bind(this);
+    this.unbookmark = this.unbookmark.bind(this);
     this.onChange = this.onChange.bind(this);
   }
 
@@ -71,6 +72,25 @@ class MainPage extends React.Component {
     e.preventDefault();
 
   }*/
+
+  unbookmark(id) {
+    console.log(".");
+    const { booked } = this.state;
+    let found = false;
+    let i = 0;
+    for (; i < booked.length; ++i) {
+      if (booked[i].eventId === id) {
+        console.log("entershereere ", i);
+        found = true;
+        break;
+      }
+    }
+    if (found) {
+      console.log("sdf;lkjsda")
+      booked.slice(i, 1);
+      this.setState({ booked });
+    }
+  }
 
   bookmark(id) {
     console.log("bookmark button makes it here");
@@ -160,6 +180,7 @@ class MainPage extends React.Component {
                 events={events}
                 bookmark={this.bookmark}
                 zipcode={zipcode.toString()}
+                unbookmark={this.unbookmark}
               />
             </div>
           </div>

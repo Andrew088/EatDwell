@@ -38,7 +38,7 @@
             "endTime": "10:00 PM",
             "foodType": ["Steak","Spring Rolls", "Fortune Cookies"],
             "cover": "uploads/sase.jpg",
-            "location": "100 Washtenaw Ave, Ann Arbor, MI 48109",
+            "location": "555 E William St, Ann Arbor, MI 48109",
             "zipcode": 48109,
             "description": "Join SASE for our annual Winter Ball! Celebrate the new flurries with us. Tickets bought at the door or online.",
             "uploadedPhotos": ["./uploaded/sase-1.jpg", "./uploaded/sase-2.jpg"],       

@@ -204,7 +204,14 @@ class EventList extends React.Component {
           <span className="distance">
             { this.state.dropDownTitle === "Distance" ? dict.dist : dict.startTime }</span>
         </li>
-        <EventPage show={dict.clicks} handleClose={this.changeModal} eventInfo={dict.eventInfo} save={this.save} />
+        <EventPage
+          show={dict.clicks}
+          handleClose={this.changeModal}
+          eventInfo={dict.eventInfo}
+          save={this.save} 
+          distance={dict.dist}
+          unbookmark={this.props.unbookmark}
+        />
       </div>
     ));
     if (this.props.events.length === 0) {
@@ -243,6 +250,7 @@ EventList.propTypes = {
   bookmark: PropTypes.func.isRequired,
   zipcode: PropTypes.string.isRequired,
   listType: PropTypes.string.isRequired,
+  unbookmark: PropTypes.func.isRequired,
 };
 
 export default EventList;
