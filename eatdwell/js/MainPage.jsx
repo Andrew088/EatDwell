@@ -7,6 +7,7 @@ import EventPage from './EventPage';
 import MapContainer from "./MapContainer";
 import DatePicker from 'react-date-picker';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 // import logo from '../img/eatdwell.png';
 // import './style.css';
 
