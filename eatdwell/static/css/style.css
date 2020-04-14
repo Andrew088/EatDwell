@@ -83,7 +83,7 @@ span button {
 }
 
 .logo {
-    margin: 0 35% 0 35%;
+    margin: 0 40% 0 40%;
     
     background-size: cover;
 }
@@ -180,10 +180,8 @@ h5.no-events-items {
 
 
 .background {
-    background-image: url('https://media.giphy.com/media/FZQolvWywXoYM/giphy.gif');
     background-size: cover;
-    background-color: #c7fbfd;
-
+    background-color: transparent;
 }
 
 
