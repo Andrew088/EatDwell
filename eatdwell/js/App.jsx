@@ -28,17 +28,25 @@ class App extends React.Component {
   render() {
     const { zipcode } = this.state;
     let render;
+    
     if (zipcode !== 0) {
-      render = <MainPage zipcode={parseInt(zipcode, 10)} />;
+      render = (
+        <div id="bar">
+          <MainPage zipcode={parseInt(zipcode, 10)} />;
+        </div>
+      )
     } else {
       render = (
-        <div className="container">
-          <SearchBar defaultText="Enter zipode here..." onChange={this.handleZipcodeChange} />
+        
+        <div id="bar">
+          <SearchBar defaultText="Enter zipcode here..." onChange={this.handleZipcodeChange} />
         </div>
       );
     }
     return (
-      <div>
+      
+      <div id="app">
+        
         { render }
       </div>
     );

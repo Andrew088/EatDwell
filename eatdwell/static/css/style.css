@@ -4,7 +4,7 @@ a:visited, a:hover, a:link, a:active {
 }
 
 .container {
-    margin-top: 5px;
+    margin-top: 0px;
 }
 .list-title {
     margin-top: 15px;
@@ -84,7 +84,7 @@ span button {
 
 .logo {
     margin: 0 35% 0 35%;
-    background-image: url('../img/background.png');
+    
     background-size: cover;
 }
 
@@ -92,7 +92,7 @@ span button {
     float: center;
 }
 
-#background {
+#back {
     float: top;
     opacity: 0.5;
     width: 100%;
@@ -177,12 +177,32 @@ h5.no-events-items {
     background-color: #f8f9fa;
 }
 
-.background img{
-    float: top;
-    z-index: 1;
-    opacity: 0.5;
+
+.background {
+    background-image: url('https://media.giphy.com/media/FZQolvWywXoYM/giphy.gif');
+    background-size: cover;
+    background-color: #c7fbfd;
+
 }
-  
-.background img:hover {
-    opacity: 1.0;
+
+
+#app {
+    background-image: url('https://impressivenature.com/wp-content/uploads/IN_Winter_Snow_59a712891ccf32ec5a009487.jpeg');
+    background-size: cover;
+    background-color: #c7fbfd;
+    min-height: 100vh;
+}
+
+
+#bar {
+    top: 25px;
+    position: relative;
+    margin: 0 auto;
+}
+
+
+#width {
+    margin: 0 auto;
+    width: 175vh;
+
 }

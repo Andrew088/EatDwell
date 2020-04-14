@@ -7,8 +7,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // container
 class EventPage extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      bookmark: false,
+    };
     this.close = this.close.bind(this);
     this.save = this.save.bind(this);
+    this.unbookmark = this.unbookmark.bind(this);
   }
 
   close(e) {
@@ -19,12 +23,22 @@ class EventPage extends React.Component {
     this.props.show = 0;
   }
 
+  unbookmark() {
+    this.props.unbookmark(this.props.eventInfo.eventId);
+    this.setState({
+      bookmark: false,
+    });
+  }
+
   save() {
+    this.setState({
+      bookmark: true,
+    });
     this.props.save(this.props.eventInfo.eventId);
   }
 
   render() {
-    const { show, eventInfo } = this.props;
+    const { show, eventInfo, distance } = this.props;
     // const showHideClassName = show ? 'modal display-block' : 'modal display-none';
     let showHideClassName = "";
     if (show == 0) {
@@ -41,13 +55,13 @@ class EventPage extends React.Component {
     return (
       <div className={showHideClassName} id={eventInfo.eventId}>
         <section className="modal-main">
-          <h2>{eventInfo.eventName}</h2> 
+          <h2><a href={eventInfo.link}>{eventInfo.eventName}</a>
           <span className="modal-button" >
-            <button id="bkmark" className="btn btn-outline-primary btn-sm" onClick={this.save}><FontAwesomeIcon icon="snowflake"/> Bookmark</button> 
-            <button id= "close" className= "btn btn-danger btn-sm" onClick={this.close}><FontAwesomeIcon icon="times" color="white"/></button></span>
-            
+            <button id="bkmark" className="btn btn-outline-primary btn-sm" onClick={this.state.bookmark ? this.unbookmark : this.save}><FontAwesomeIcon icon="snowflake"/>{this.state.bookmark ? 'Unbookmark' : 'Bookmark'}</button>
+            <button id= "close" className= "btn btn-danger btn-sm" onClick={this.close}><FontAwesomeIcon icon="times" color="white"/></button></span></h2>
           <h4>Start Time: {eventInfo.startTime}</h4>
           <h4>End Time: {eventInfo.endTime}</h4>
+          <h4>Distance: {distance}</h4>
           <h4>Food Type: {foodTypes} </h4>
           <p>{eventInfo.description}</p>
           <img className="eventImage" src={eventInfo.cover} alt="profile" />
@@ -58,11 +72,13 @@ class EventPage extends React.Component {
 }
 
 EventPage.propTypes = {
-  show: PropTypes.bool.isRequired,
+  show: PropTypes.number.isRequired,
   handleClose: PropTypes.func.isRequired,
   // eslint-disable-next-line react/forbid-prop-types
   eventInfo: PropTypes.object.isRequired,
   save: PropTypes.func.isRequired,
+  distance: PropTypes.string.isRequired,
+  unbookmark: PropTypes.func.isRequired,
 };
 
 export default EventPage;

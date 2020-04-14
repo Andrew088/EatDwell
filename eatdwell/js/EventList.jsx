@@ -2,6 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Dropdown from './Dropdown';
 import EventPage from './EventPage';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // container 
+
+// #5ce1e6 is pin color
+// #0275d8 is btn primary color
+
 
 class EventList extends React.Component {
   constructor(props) {
@@ -204,13 +209,23 @@ class EventList extends React.Component {
           <span className="distance">
             { this.state.dropDownTitle === "Distance" ? dict.dist : dict.startTime }</span>
         </li>
-        <EventPage show={dict.clicks} handleClose={this.changeModal} eventInfo={dict.eventInfo} save={this.save} />
+        <EventPage
+          show={dict.clicks}
+          handleClose={this.changeModal}
+          eventInfo={dict.eventInfo}
+          save={this.save} 
+          distance={dict.dist}
+          unbookmark={this.props.unbookmark}
+        />
       </div>
     ));
     if (this.props.events.length === 0) {
       let comment = ""
+      let icon = <FontAwesomeIcon icon="igloo" color="#0275d8"/>
+      let sf = <FontAwesomeIcon icon="snowflake" color="aquamarine"/>
       if (this.props.listType === "bookmarked") {
-        comment = "You have no bookmarked items"
+      
+        comment = "You have no bookmarked items "
         empty_list = "empty-list"
       }
       else {
@@ -218,7 +233,7 @@ class EventList extends React.Component {
         empty_list = "empty-list"
       }
       list = (
-        <h5 className={`no-${this.props.listType}-items`}>{ comment }</h5>
+        <h5 style={{color: "#0275d8", fontStyle: "italic"}} className={`no-${this.props.listType}-items`}>{ comment } {icon}</h5>
       )
     }
     return (
@@ -243,6 +258,7 @@ EventList.propTypes = {
   bookmark: PropTypes.func.isRequired,
   zipcode: PropTypes.string.isRequired,
   listType: PropTypes.string.isRequired,
+  unbookmark: PropTypes.func.isRequired,
 };
 
 export default EventList;

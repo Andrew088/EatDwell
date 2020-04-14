@@ -18,6 +18,7 @@ class MapContainer extends React.Component {
       showingInfoWindow: false,
       selectedPlace: {},
       currentLoc: [0, 0],
+      currentLocMarker: [],
       markers: [],
       activeMarker: {},
     };
@@ -31,7 +32,9 @@ class MapContainer extends React.Component {
 
 
   componentDidUpdate(prevProps, prevState) {
+    console.log("enters here");
     if (prevProps.events !== this.props.events) {
+      console.log("should also entere here");
       this.renderChildren();
     }
   }
@@ -92,7 +95,7 @@ class MapContainer extends React.Component {
         );
         this.setState((prevState) => ({
           currentLoc: [latitude, longitude],
-          markers: [...prevState.markers, marker],
+          currentLocMarker: [marker],
         }));
       } else {
         console.log("Request failed.");
@@ -120,6 +123,7 @@ class MapContainer extends React.Component {
     });
   }
 
+  // eslint-disable-next-line class-methods-use-this
   showDetails(eventId) {
     document.getElementById(eventId).classList.add("display-block");
     document.getElementById(eventId).classList.remove("display-none");
@@ -127,6 +131,7 @@ class MapContainer extends React.Component {
 
   renderChildren() {
     const { events } = this.props;
+    console.log(events);
     const promises = events.map((event) => {
       return this.getLoc(event.location).then((pos) => {
         return (
@@ -146,14 +151,14 @@ class MapContainer extends React.Component {
     });
     Promise.all(promises).then((children) => {
       this.setState((prevState) => ({
-        markers: [...prevState.markers, children],
+        markers: children,
       }));
     });
   }
 
   render() {
-    const { currentLoc } = this.state;
-    console.log("render current loc: ", currentLoc);
+    const { currentLoc, currentLocMarker } = this.state;
+    console.log("render ,current loc: ", currentLoc);
     return (
       <div>
         <Map
@@ -164,23 +169,7 @@ class MapContainer extends React.Component {
           onClick={this.onMapClick}
         >
           { this.state.markers }
-          {/* <InfoWindowWrapper
-            // create a popup infoWindow when clicking marker (just an example)
-            onOpen={this.windowHasOpened} // use to keep track of window states
-            onClose={this.onInfoWindowClose}
-            visible={this.state.showingInfoWindow}
-            marker={this.state.activeMarker} //only get's one at a time
-          >
-            <div>
-              <h3>{this.state.selectedPlace.name}</h3>
-              <button
-                type="button"
-                onClick={this.showDetails.bind(this, this.state.selectedPlace)}
-              >
-                Show details
-              </button>
-            </div>
-          </InfoWindowWrapper> */}
+          { currentLocMarker.length > 0 ? currentLocMarker : null }
           <InfoWindowEx
             marker={this.state.activeMarker}
             visible={this.state.showingInfoWindow}
