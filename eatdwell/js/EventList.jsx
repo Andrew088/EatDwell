@@ -104,12 +104,25 @@ class EventList extends React.Component {
           rightIndex++;
         }
       } else {
-        if (left[leftIndex].startTime < right[rightIndex].startTime) {
-          res.push(left[leftIndex]);
-          leftIndex++;
-        } else {
+        let leftTime = left[leftIndex].startTime.split(" ");
+        let rightTime = right[rightIndex].startTime.split(" ");
+        if(rightTime[1] < leftTime[1]){
           res.push(right[rightIndex]);
           rightIndex++;
+        }
+        else if(leftTime[1] < rightTime[1]){
+          res.push(left[leftIndex]);
+          leftIndex++;
+        }
+        else{
+          if(rightTime[0] < leftTime[0]){
+            res.push(right[rightIndex]);
+            rightIndex++;
+          }
+          else {
+            res.push(left[leftIndex]);
+            leftIndex++;
+          }
         }
       }
     }
