@@ -11,6 +11,7 @@ class EventPage extends React.Component {
       bookmark: false,
       verified: 0,
       unverified: 0,
+      verifyDisabled: false,
     };
     this.close = this.close.bind(this);
     this.save = this.save.bind(this);
@@ -31,7 +32,6 @@ class EventPage extends React.Component {
     this.setState({
       bookmark: false,
     });
-    console.log("bookmark state: ");
   }
 
   save() {
@@ -40,6 +40,16 @@ class EventPage extends React.Component {
     });
     this.props.save(this.props.eventInfo.eventId);
   }
+
+  onClickVerify() {
+    
+    if(this.state.verifyDisabled){
+      return;
+    }
+    this.setState({verifyDisabled: true}, () => { console.log('verify disabled') });
+  }
+
+  
 
   render() {
     const { show, eventInfo, distance } = this.props;
@@ -64,7 +74,8 @@ class EventPage extends React.Component {
             <button id="bkmark" className="btn btn-outline-primary btn-sm" onClick={this.state.bookmark ? this.unbookmark : this.save}><FontAwesomeIcon icon="snowflake"/>{this.state.bookmark ? ' Unbookmark' : ' Bookmark'}</button>
             <button id= "close" className= "btn btn-danger btn-sm" onClick={this.close}><FontAwesomeIcon icon="times" color="white"/></button></span></h2>
           
-          <button id="verified" className="btn btn-success btn-med mr-1"> <FontAwesomeIcon icon="check-circle"/> Verify</button>
+          <button id="verified" className="btn btn-success btn-med mr-1" onClick={this.onClickVerify} disabled={this.state.verifyDisabled}> <FontAwesomeIcon icon="check-circle"/>
+          {this.state.verifyDisabled ?  'Verified!': 'Verify'} </button>
           <button id="unverified" className="btn btn-outline-warning btn-med"> <FontAwesomeIcon icon="question-circle"/> Not Sure</button>
 
           
