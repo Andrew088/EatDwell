@@ -216,7 +216,8 @@ h5.no-events-items {
 }
 
 .navbar-light {
-    border-radius: 8px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
     background-color: white!important;
 }
 
