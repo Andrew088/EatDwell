@@ -31,9 +31,7 @@ class App extends React.Component {
     
     if (zipcode !== 0) {
       render = (
-        <div id="bar">
-          <MainPage zipcode={parseInt(zipcode, 10)} />;
-        </div>
+        <MainPage zipcode={parseInt(zipcode, 10)} />
       )
     } else {
       render = (
