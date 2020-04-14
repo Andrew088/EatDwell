@@ -45,7 +45,8 @@ class App extends React.Component {
     }
     return (
       <div id="app">
-        <SnowStorm snowCharacter="❄" flakeWidth={12} flakeHeight={12} snowColor="#BDD8F5" />
+        {/* #BDD8F5 */}
+        <SnowStorm snowCharacter="❄" flakeWidth={20} flakeHeight={20} snowColor="white" />
         { render }
       </div>
     );
