@@ -17,7 +17,7 @@ class SearchBar extends React.Component {
     return (
       <div className="text-center">
         <form onSubmit={this.handleChange}>
-          <input type="text" className="form-control" placeholder={defaultText} ref={(input) => this.textInput = input} />
+          <input id="width" type="text" className="form-control" placeholder={defaultText} ref={(input) => this.textInput = input} />
         </form>
       </div>
     );
